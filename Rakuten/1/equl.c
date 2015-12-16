@@ -17,30 +17,25 @@ int solution(int A[], int N)
 
 	printf("sum is %d\n", sum);
 
-	// deal with the corner cases
-	// p = 0
-	if((sum - A[0]) == 0)
-	{
-		output = 0;
-		return output;
-	}
-
-	// p = N-1;
-	if((sum - A[N-1]) == 0)
-	{
-		output = N-1;
-		return output;
-	}
-
-	int p = 1;
+	int p = 0;
 	result_pre = 0;
-	printf("p is %d\n", p);
-	while(p != (N-1))
+	while(p != N)		
 	{
-		result_pre += A[p-1];
+		printf("p is %d\n", p);
+		
+		if(p == 0)
+		{
+			result_pre = 0;
+		}
+		else
+		{
+			result_pre += A[p-1];
+		}		
 		printf("result_pre is %d\n", result_pre);
+
 		result_suf = sum - A[p] - result_pre;
 		printf("result_suf is %d\n", result_suf);
+
 		if(result_pre == result_suf)
 		{
 			output = p;
